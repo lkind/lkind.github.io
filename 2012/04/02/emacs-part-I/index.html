@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Emacs For Python插件安装(上篇) | 永不逝去的青春</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="og:type" content="blog">
+<meta name="og:title" content="Emacs For Python插件安装(上篇)">
+<meta name="og:url" content="http://lkind.github.io/2012/04/02/emacs-part-I/">
+<meta name="og:image">
+<meta name="og:site_name" content="永不逝去的青春">
+<meta name="og:description" content="感谢http://www.cnblogs.com/coderzh/archive/2009/12/26/emacspythonide.html提供了技术支持
+下面介绍的均在MacOs10.7下面进行
+首先,为了保证Emacs的可执行路径以及PATH的环境变量
+the executable path(exec-path)1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+1">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="永不逝去的青春" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">永不逝去的青春</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Just Kidding.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://lkind.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-emacs-part-I" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/04/02/emacs-part-I/" class="article-date">
+  <time datetime="2012-04-02T05:22:00.000Z" itemprop="datePublished">Apr 2 2012</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Emacs For Python插件安装(上篇)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>感谢<a href="http://www.cnblogs.com/coderzh/archive/2009/12/26/emacspythonide.html" target="_blank">http://www.cnblogs.com/coderzh/archive/2009/12/26/emacspythonide.html</a><br>提供了技术支持</p>
+<h3 id="-4e0b-9762-4ecb-7ecd-7684-5747-5728-MacOs10-7-4e0b-9762-8fdb-884c-">下面介绍的均在MacOs10.7下面进行</h3>
+<p>首先,为了保证Emacs的可执行路径以及PATH的环境变量</p>
+<figure class="highlight lang-cl"><figcaption><span>the executable path(exec-path)</span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre>(<span class="keyword">custom</span>-<span class="keyword">set</span>-variables
+ ;; <span class="keyword">custom</span>-<span class="keyword">set</span>-variables was added <span class="keyword">by</span> Custom.
+ ;; <span class="keyword">If</span> you edit it <span class="keyword">by</span> hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; <span class="keyword">If</span> there <span class="keyword">is</span> more than one, they won<span class="comment">'t work right.</span>
+ <span class="comment">'(current-language-environment "UTF-8")</span>
+ <span class="comment">'(desktop-base-file-name "emacs.desktop")</span>
+ <span class="comment">'(desktop-save t)</span>
+ <span class="comment">'(desktop-save-mode t)</span>
+ <span class="comment">'(exec-path (quote ("/usr/bin" "/bin" "/usr/sbin" "/sbin" "/Applications/Emacs.app/Contents/MacOS/bin" "/usr/local/bin/" "/opt/local/bin" "/opt/local/sbin" "/Users/jerome/Documents/apache-maven-2.2.1/bin" "/sbin:/usr/local/bin" "/usr/X11/bin" "/Library/Python/2.7/site-packages/django/bin" "/usr/local/mysql/bin"))) ;; this line</span>
+ <span class="comment">'(show-paren-mode t))</span>
+ (<span class="keyword">custom</span>-<span class="keyword">set</span>-faces
+ ;; <span class="keyword">custom</span>-<span class="keyword">set</span>-faces was added <span class="keyword">by</span> Custom.
+ ;; <span class="keyword">If</span> you edit it <span class="keyword">by</span> hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; <span class="keyword">If</span> there <span class="keyword">is</span> more than one, they won<span class="comment">'t work right.</span>
+ )
+</pre></td></tr></table></figure>
+
+<figure class="highlight lang-sh"><figcaption><span>set the PATH environment for emacs</span></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="comment">(setenv</span> <span class="comment">"PATH"</span> <span class="comment">"/opt/local/bin:/opt/local/sbin:/Users/jerome/Documents/apache</span><span class="literal">-</span><span class="comment">maven</span><span class="literal">-</span><span class="comment">2</span><span class="string">.</span><span class="comment">2</span><span class="string">.</span><span class="comment">1/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Library/Python/2</span><span class="string">.</span><span class="comment">7/site</span><span class="literal">-</span><span class="comment">packages/django/bin:/usr/local/mysql/bin")</span>
+</pre></td></tr></table></figure>
+
+<h3 id="-6a21-677f-63d2-4ef6-YASnippet">模板插件YASnippet</h3>
+<p>官方网站，之前是放在google code上面的，现在迁移到GitHub上面了</p>
+<p><a href="https://github.com/capitaomorte/yasnippet" target="_blank">github repo</a></p>
+<p>安装方式见官方网站的帮助<br>我也比较喜欢把插件都放在~/.emacs.d/plugin/plugin-name/<br>下面开始安装</p>
+<figure class="highlight lang-sh"><figcaption><span>git clone repo</span></figcaption><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>cd ~/<span class="preprocessor">.emacs</span><span class="preprocessor">.d</span>/plugin
+git clone https://github<span class="preprocessor">.com</span>/capitaomorte/yasnippet
+</pre></td></tr></table></figure>
+
+<figure class="highlight lang-cl"><figcaption><span>然后添加到你的.emacs</span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="list">(<span class="title">add-to-list</span> 'load-path
+    <span class="string">"~/.emacs.d/plugin/yasnippet"</span>)</span>
+<span class="list">(<span class="title">require</span> 'yasnippet)</span> <span class="comment">;; not yasnippet-bundle</span>
+<span class="list">(<span class="title">yas/global-mode</span> <span class="number">1</span>)</span>
+</pre></td></tr></table></figure>
+
+<p>这个功能跟TextMate很类似，敲出关键词，然后按TAB就生成模板了<br>至于他的Expand模式，我会继续研究，稍后给大家释出，方便大家以后的工作,着急的可以先睹为快</p>
+<ol>
+<li><a href="http://capitaomorte.github.com/yasnippet/snippet-expansion.html" target="_blank">http://capitaomorte.github.com/yasnippet/snippet-expansion.html</a></li>
+<li><a href="http://capitaomorte.github.com/yasnippet/snippet-development.html" target="_blank">http://capitaomorte.github.com/yasnippet/snippet-development.html</a></li>
+<li><a href="http://capitaomorte.github.com/yasnippet/snippet-menu.html" target="_blank">http://capitaomorte.github.com/yasnippet/snippet-menu.html</a></li>
+<li><a href="http://capitaomorte.github.com/yasnippet/snippet-organization.html" target="_blank">http://capitaomorte.github.com/yasnippet/snippet-organization.html</a></li>
+</ol>
+<h3 id="-77e5-540d-63d2-4ef6-auto-complete">知名插件auto-complete</h3>
+<p><a href="http://cx4a.org/software/auto-complete/manual.html" target="_blank">官方网站</a><br><a href="http://cx4a.org/pub/auto-complete/auto-complete-1.3.1.zip" target="_blank">下载链接</a></p>
+<p>安装方法</p>
+<ol>
+<li>打开emacs</li>
+<li>M-x load-file RET</li>
+<li>键入你auto-complete解压缩之后的地址/etc/install.el RET</li>
+<li>之后键入你要安装的地址,比如我是~/.emacs.d/auto-complete</li>
+<li>等待安装完成<figure class="highlight lang-cl"><figcaption><span>更新.emacs</span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="comment">;;</span> <span class="comment">for</span> <span class="comment">auto</span><span class="literal">-</span><span class="comment">complete</span>
+<span class="comment">(add</span><span class="literal">-</span><span class="comment">to</span><span class="literal">-</span><span class="comment">list</span> <span class="comment">'load</span><span class="literal">-</span><span class="comment">path</span> <span class="comment">"~/</span><span class="string">.</span><span class="comment">emacs</span><span class="string">.</span><span class="comment">d/plugin/auto</span><span class="literal">-</span><span class="comment">complete/")</span>
+<span class="comment">(require</span> <span class="comment">'auto</span><span class="literal">-</span><span class="comment">complete</span><span class="literal">-</span><span class="comment">config)</span>
+<span class="comment">(add</span><span class="literal">-</span><span class="comment">to</span><span class="literal">-</span><span class="comment">list</span> <span class="comment">'ac</span><span class="literal">-</span><span class="comment">dictionary</span><span class="literal">-</span><span class="comment">directories</span> <span class="comment">"~/</span><span class="string">.</span><span class="comment">emacs</span><span class="string">.</span><span class="comment">d/plugin/auto</span><span class="literal">-</span><span class="comment">complete//ac</span><span class="literal">-</span><span class="comment">dict")</span>
+<span class="comment">(ac</span><span class="literal">-</span><span class="comment">config</span><span class="literal">-</span><span class="comment">default)</span>
+<span class="comment">(define</span><span class="literal">-</span><span class="comment">key</span> <span class="comment">ac</span><span class="literal">-</span><span class="comment">mode</span><span class="literal">-</span><span class="comment">map</span> <span class="comment">(kbd</span> <span class="comment">"M</span><span class="literal">-</span><span class="comment">TAB")</span> <span class="comment">'auto</span><span class="literal">-</span><span class="comment">complete)</span> <span class="comment">;;我绑定的快捷健</span>
+</pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="-91cd-6784-5de5-5177-Rope-5b89-88c5-">重构工具Rope安装</h3>
+<figure class="highlight lang-sh"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> easy_install rope
+</pre></td></tr></table></figure>
+
+<p>Pymacs安装</p>
+<p><a href="http://pymacs.progiciels-bpi.ca/pymacs.html" target="_blank">官方网站</a></p>
+<p><a href="https://github.com/pinard/Pymacs" target="_blank">gitrepo</a></p>
+<p>解压缩之后编辑下Makefile<br>修改EMACS和PYTHON修改到你对应的版本<br>下面是我的</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="setting">EMACS = <span class="value">/Applications/Emacs.app/Contents/MacOS/Emacs</span></span>
+<span class="setting">PYTHON = <span class="value">python</span></span>
+</pre></td></tr></table></figure>
+
+<p>之后到当前目录下执行</p>
+<figure class="highlight lang-sh"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> make install
+</pre></td></tr></table></figure>
+
+<p>然后把目录下的pymacs.el复制到~/.emacs.d/plugin/pymacs下面</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="comment">M</span><span class="literal">-</span><span class="comment">x</span> <span class="comment">load</span><span class="literal">-</span><span class="comment">library</span> <span class="comment">RET</span> <span class="comment">pymacs</span> <span class="comment">RET</span>
+</pre></td></tr></table></figure>
+
+<p>这个时候不应该报错</p>
+<figure class="highlight lang-sh"><figcaption><span>更新.emacs</span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="list">(<span class="title">autoload</span> 'pymacs-apply <span class="string">"pymacs"</span>)</span>
+<span class="list">(<span class="title">autoload</span> 'pymacs-call <span class="string">"pymacs"</span>)</span>
+<span class="list">(<span class="title">autoload</span> 'pymacs-eval <span class="string">"pymacs"</span> <span class="literal">nil</span> <span class="literal">t</span>)</span>
+<span class="list">(<span class="title">autoload</span> 'pymacs-exec <span class="string">"pymacs"</span> <span class="literal">nil</span> <span class="literal">t</span>)</span>
+<span class="list">(<span class="title">autoload</span> 'pymacs-load <span class="string">"pymacs"</span> <span class="literal">nil</span> <span class="literal">t</span>)</span>
+</pre></td></tr></table></figure>
+
+<ul>
+<li>重启emacs</li>
+<li>M-x pymacs-eval RET repr(2L**111) RET</li>
+<li>结果应该是2596148429267413814265248164610048L</li>
+<li>M-x pymacs-load RET os RET RET</li>
+<li>M-: (os-getcwd) RET</li>
+<li>最后应该得到当前buffer目录</li>
+</ul>
+<p>然后我们继续</p>
+<ul>
+<li>安装ropemacs</li>
+<li>前提是You should install rope library, ropemode and pymacs before using ropemacs</li>
+</ul>
+<figure class="highlight lang-sh"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> easy_install ropemode
+</pre></td></tr></table></figure>
+
+<p>安装</p>
+<p><a href="https://bitbucket.org/agr/ropemacs" target="_blank">官方网站</a></p>
+<p>下载后解压进入目录</p>
+<figure class="highlight lang-sh"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> python setup.py install
+</pre></td></tr></table></figure>
+
+<p>安装之后更新.emacs</p>
+<figure class="highlight lang-cl"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="list">(<span class="title">require</span> ‘pymacs)</span>
+<span class="list">(<span class="title">pymacs-load</span> “ropemacs” “rope-”)</span>
+</pre></td></tr></table></figure>
+
+<p>重启后确定没有问题</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lkind.github.io/2012/04/02/emacs-part-I/" data-id="ckoojxvvtg4wpqiv" class="article-share-link">Share</a>
+      
+        <a href="http://lkind.github.io/2012/04/02/emacs-part-I/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emacs/">emacs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2012/04/02/emacs-part-II/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Emacs For Python插件安装(下篇)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2012/04/02/Django进行时/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Django进行时</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/addthis/">addthis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/appengine/">appengine</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/">bash</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/buildout/">buildout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emacs/">emacs</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/octopress/">octopress</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pycon/">pycon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小吐心中块垒/">小吐心中块垒</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/addthis/" style="font-size: 10.00px;">addthis</a><a href="/tags/appengine/" style="font-size: 10.00px;">appengine</a><a href="/tags/bash/" style="font-size: 13.33px;">bash</a><a href="/tags/buildout/" style="font-size: 10.00px;">buildout</a><a href="/tags/django/" style="font-size: 10.00px;">django</a><a href="/tags/emacs/" style="font-size: 16.67px;">emacs</a><a href="/tags/hexo/" style="font-size: 10.00px;">hexo</a><a href="/tags/markdown/" style="font-size: 10.00px;">markdown</a><a href="/tags/octopress/" style="font-size: 16.67px;">octopress</a><a href="/tags/pycon/" style="font-size: 10.00px;">pycon</a><a href="/tags/python/" style="font-size: 20.00px;">python</a><a href="/tags/小吐心中块垒/" style="font-size: 10.00px;">小吐心中块垒</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04">January 2012</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11">January 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12">January 2013</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2013/12/06/充实的一段时间/">充实的一段时间</a>
+          </li>
+        
+          <li>
+            <a href="/2013/11/30/探寻gae/">探寻GAE</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/12/入魔/">入魔</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/07/heroku转github/">heroku转github</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/06/各种傻事之折腾emacs/">各种傻事之折腾emacs</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 BINLEI XUE<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'binlei';
+  
+  var disqus_url = 'http://lkind.github.io/2012/04/02/emacs-part-I/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript" src="/js/script.js"></script>
+  </div>
+</body>
+</html>

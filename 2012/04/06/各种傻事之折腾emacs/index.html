@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>各种傻事之折腾emacs | 永不逝去的青春</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="og:type" content="blog">
+<meta name="og:title" content="各种傻事之折腾emacs">
+<meta name="og:url" content="http://lkind.github.io/2012/04/06/各种傻事之折腾emacs/">
+<meta name="og:image">
+<meta name="og:site_name" content="永不逝去的青春">
+<meta name="og:description" content="markdown插件
+先讲一点啊，markdown的时候强烈建议不要用&lt;br /&gt;，宁愿多敲回车
+1
+2
+cd ~/.emacs.d/plugin
+git clone git://jblevins.org/git/markdown-mode.git
+
+
+修改.emacs
+1
+2
+3
+4
+(add-to-list 'load-path "~/.emacs.d/plugin/markdow">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="永不逝去的青春" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">永不逝去的青春</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Just Kidding.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://lkind.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-各种傻事之折腾emacs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/04/06/各种傻事之折腾emacs/" class="article-date">
+  <time datetime="2012-04-05T16:38:00.000Z" itemprop="datePublished">Apr 6 2012</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      各种傻事之折腾emacs
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="markdown-63d2-4ef6-">markdown插件</h3>
+<p>先讲一点啊，markdown的时候强烈建议不要用<code>&lt;br /&gt;</code>，宁愿多敲回车</p>
+<figure class="highlight lang-sh"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>cd ~/<span class="preprocessor">.emacs</span><span class="preprocessor">.d</span>/plugin
+git clone git://jblevins<span class="preprocessor">.org</span>/git/markdown-mode<span class="preprocessor">.git</span>
+</pre></td></tr></table></figure>
+
+<p>修改.emacs</p>
+<figure class="highlight lang-cl"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="comment">(add</span><span class="literal">-</span><span class="comment">to</span><span class="literal">-</span><span class="comment">list</span> <span class="comment">'load</span><span class="literal">-</span><span class="comment">path</span> <span class="comment">"~/</span><span class="string">.</span><span class="comment">emacs</span><span class="string">.</span><span class="comment">d/plugin/markdown</span><span class="literal">-</span><span class="comment">mode")</span>
+<span class="comment">(autoload</span> <span class="comment">'markdown</span><span class="literal">-</span><span class="comment">mode</span> <span class="comment">"markdown</span><span class="literal">-</span><span class="comment">mode</span><span class="string">.</span><span class="comment">el"</span>
+  <span class="comment">"Major</span> <span class="comment">mode</span> <span class="comment">for</span> <span class="comment">editing</span> <span class="comment">Markdown</span> <span class="comment">files"</span> <span class="comment">t)</span>
+<span class="comment">(setq</span> <span class="comment">auto</span><span class="literal">-</span><span class="comment">mode</span><span class="literal">-</span><span class="comment">alist</span> <span class="comment">(cons</span> <span class="comment">'("\\</span><span class="string">.</span><span class="comment">markdown"</span> <span class="string">.</span> <span class="comment">markdown</span><span class="literal">-</span><span class="comment">mode)</span> <span class="comment">auto</span><span class="literal">-</span><span class="comment">mode</span><span class="literal">-</span><span class="comment">alist))</span>
+</pre></td></tr></table></figure>
+
+<p>我基本只是用来看语法高亮的，其他的无视了</p>
+<h3 id="-91cd-641e-emacs">重搞emacs</h3>
+<p>之前说过通过<code>ln -s</code>来解决全局emacs的情况, 但是要注意一点，因为emacs的路径是hardcode的,连接emacs的话，他会去找你编译的时候的路径，而且lib也奇奇怪怪的</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="type">Warning</span>: arch-dependent <span class="typedef"><span class="keyword">data</span> dir <span class="container">(/<span class="type">Users</span>/<span class="title">jerome</span>/<span class="type">Desktop</span>/<span class="title">trunk</span>/<span class="title">nextstep</span>/<span class="type">Emacs</span>.<span class="title">app</span>/<span class="type">Contents</span>/<span class="type">MacOS</span>//<span class="title">libexec</span>/<span class="title">emacs</span>/24.0.92/<span class="title">x86_64</span>-<span class="title">apple</span>-<span class="title">darwin11</span>.2.0/)</span> does not exist.</span>
+<span class="type">Warning</span>: arch-independent <span class="typedef"><span class="keyword">data</span> dir <span class="container">(/<span class="type">Users</span>/<span class="title">jerome</span>/<span class="type">Desktop</span>/<span class="title">trunk</span>/<span class="title">nextstep</span>/<span class="type">Emacs</span>.<span class="title">app</span>/<span class="type">Contents</span>/<span class="type">Resources</span>/<span class="title">share</span>/<span class="title">emacs</span>/24.0.92/<span class="title">etc</span>/)</span> does not exist.</span>
+<span class="type">Error</span>: charsets directory (/<span class="type">Users</span>/jerome/<span class="type">Desktop</span>/trunk/nextstep/<span class="type">Emacs</span>.app/<span class="type">Contents</span>/<span class="type">Resources</span>/share/emacs/<span class="number">24.0</span><span class="number">.92</span>/etc/charsets) does not exist.
+<span class="type">Emacs</span> will not function correctly without the character map files.
+<span class="type">Please</span> check your installation!
+<span class="type">Warning</span>: <span class="type">Could</span> not find simple.el nor simple.elc
+<span class="type">Fatal</span> error (<span class="number">6</span>)<span class="type">Abort</span> trap: <span class="number">6</span>
+</pre></td></tr></table></figure>
+
+<p>解决方法来了</p>
+<figure class="highlight lang-sh"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>su<span class="operator"><span class="keyword">do</span> rm /opt/<span class="keyword">local</span>/bin/emacs
+sudo rm /opt/<span class="keyword">local</span>/bin/emacsclient</span>
+</pre></td></tr></table></figure>
+
+<p>重命名下<code>/Applications/Emacs.app/Contents/MacOS/Emacs</code>到emacs</p>
+<p>修改.bash_profile</p>
+<figure class="highlight lang-sh"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>export <span class="constant">PATH</span>=<span class="regexp">/Applications/</span><span class="constant">Emacs</span>.app/<span class="constant">Contents</span>/<span class="constant">MacOS</span>/<span class="symbol">:/Applications/Emacs</span>.app/<span class="constant">Contents</span>/<span class="constant">MacOS</span>/bin/<span class="symbol">:</span><span class="variable">$PATH</span>
+</pre></td></tr></table></figure>
+
+<p>即可解决，而且大家可能也注意到了一点，因为之前virtualenvwrapper的emacs插件，平常我们只需要启动emacsclient编辑即可，基本是把emacs丢到另外一个桌面去搞的</p>
+<p>编辑完毕可以<code>C-x k RET yes RET</code>退出</p>
+<p>之前hardcode的问题时候做了软连接，然后删除软链接的时候<code>rm -rf</code>了，然后emacs就88了，重新编译</p>
+<figure class="highlight lang-sh"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="title">bzr</span> branch bzr://bzr.savannah.gnu.org/emacs/trunk
+<span class="title">cd</span> trunk
+./autogen.sh
+./configure <span class="comment">--with-ns</span>
+<span class="title">make</span>
+<span class="title">sudo</span> make install
+</pre></td></tr></table></figure>
+
+<p>从nextstep目录下复制Emacs.app就可以了</p>
+<p>然后启动无压力</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lkind.github.io/2012/04/06/各种傻事之折腾emacs/" data-id="34nua5vgt2olxn70" class="article-share-link">Share</a>
+      
+        <a href="http://lkind.github.io/2012/04/06/各种傻事之折腾emacs/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emacs/">emacs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2012/04/07/heroku转github/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          heroku转github
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2012/04/05/octopress心得/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">octopress心得</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/addthis/">addthis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/appengine/">appengine</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/">bash</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/buildout/">buildout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emacs/">emacs</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/octopress/">octopress</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pycon/">pycon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小吐心中块垒/">小吐心中块垒</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/addthis/" style="font-size: 10.00px;">addthis</a><a href="/tags/appengine/" style="font-size: 10.00px;">appengine</a><a href="/tags/bash/" style="font-size: 13.33px;">bash</a><a href="/tags/buildout/" style="font-size: 10.00px;">buildout</a><a href="/tags/django/" style="font-size: 10.00px;">django</a><a href="/tags/emacs/" style="font-size: 16.67px;">emacs</a><a href="/tags/hexo/" style="font-size: 10.00px;">hexo</a><a href="/tags/markdown/" style="font-size: 10.00px;">markdown</a><a href="/tags/octopress/" style="font-size: 16.67px;">octopress</a><a href="/tags/pycon/" style="font-size: 10.00px;">pycon</a><a href="/tags/python/" style="font-size: 20.00px;">python</a><a href="/tags/小吐心中块垒/" style="font-size: 10.00px;">小吐心中块垒</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04">January 2012</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11">January 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12">January 2013</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2013/12/06/充实的一段时间/">充实的一段时间</a>
+          </li>
+        
+          <li>
+            <a href="/2013/11/30/探寻gae/">探寻GAE</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/12/入魔/">入魔</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/07/heroku转github/">heroku转github</a>
+          </li>
+        
+          <li>
+            <a href="/2012/04/06/各种傻事之折腾emacs/">各种傻事之折腾emacs</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 BINLEI XUE<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'binlei';
+  
+  var disqus_url = 'http://lkind.github.io/2012/04/06/各种傻事之折腾emacs/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript" src="/js/script.js"></script>
+  </div>
+</body>
+</html>
